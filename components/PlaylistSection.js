@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#292966', // Dark periwinkle for section titles
+    color: '#3F3B0C', // Dark straw for section titles
     marginLeft: 20,
     marginBottom: 16,
   },

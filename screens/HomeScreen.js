@@ -34,11 +34,11 @@ const HomeScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#9999FF', '#CCCCFF']} // Periwinkle gradient (darker to lighter)
+      colors={['#D8C830', '#F6F2CE']} // Straw gradient (darker to lighter tint)
       style={styles.gradient}
     >
       <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
         
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           {/* Greeting + Streak Summary */}
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 28,
     fontWeight: '800', // Slightly bolder for friendlier tone
-    color: '#292966', // Dark periwinkle for high contrast
+    color: '#3F3B0C', // Dark straw shade for high contrast
     textAlign: 'left',
     letterSpacing: 0.5, // Slight letter spacing for better readability
   },

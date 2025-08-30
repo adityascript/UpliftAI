@@ -79,7 +79,7 @@ const AnimatedWaveString = () => {
           ]}
         >
           <LinearGradient
-            colors={['#9999FF', '#CCCCFF', '#D5D5FF']}
+            colors={['#E49B7B', '#E4D96F', '#E49B7B']}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             style={styles.gradientSegment}
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     top: '50%',
     marginTop: -1.25,
     overflow: 'hidden',
-    shadowColor: '#9999FF',
+    shadowColor: '#E49B7B',
     shadowOffset: {
       width: 0,
       height: 0,

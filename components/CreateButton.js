@@ -6,7 +6,7 @@ const CreateButton = ({ onPress }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.8}>
       <LinearGradient
-        colors={['#6666FF', '#9999FF']} // Deep to medium periwinkle gradient
+        colors={['#E49B7B', '#E4D96F']} // Coral to straw gradient for strong contrast
         style={styles.gradient}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
   plusIcon: {
     fontSize: 28,
     fontWeight: '300',
-    color: '#FFFFFF',
+    color: '#FFFFFF', // White for strong contrast on coral-straw gradient
     marginRight: 8,
   },
   createText: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: '#FFFFFF', // White for strong contrast
   },
 });
 
