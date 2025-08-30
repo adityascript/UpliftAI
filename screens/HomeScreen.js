@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import StreakCalendar from '../components/StreakCalendar';
+import ProgressIndicator from '../components/ProgressIndicator';
 import CreateButton from '../components/CreateButton';
 import PlaylistSection from '../components/PlaylistSection';
 import QuickActions from '../components/QuickActions';
@@ -51,8 +51,8 @@ const HomeScreen = () => {
             <Text style={styles.greeting}>{getGreeting()}, Aditya!</Text>
           </View>
 
-          {/* Streak Calendar */}
-          <StreakCalendar />
+          {/* Progress Indicator */}
+          <ProgressIndicator />
 
           {/* Primary Create Button */}
           <CreateButton onPress={handleCreatePress} />

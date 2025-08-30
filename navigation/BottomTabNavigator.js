@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
+import HabitScreen from '../screens/HabitScreen';
 import PlaylistsScreen from '../screens/PlaylistsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
@@ -16,6 +17,8 @@ const BottomTabNavigator = () => {
 
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Habit') {
+            iconName = focused ? 'calendar' : 'calendar-outline';
           } else if (route.name === 'Playlists') {
             iconName = focused ? 'list' : 'list-outline';
           } else if (route.name === 'Profile') {
@@ -49,6 +52,7 @@ const BottomTabNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Habit" component={HabitScreen} />
       <Tab.Screen name="Playlists" component={PlaylistsScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
