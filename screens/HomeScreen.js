@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, SafeAreaView, StatusBar, Platform } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import ProgressIndicator from '../components/ProgressIndicator';
 import CreateButton from '../components/CreateButton';
@@ -7,13 +7,8 @@ import PlaylistSection from '../components/PlaylistSection';
 import QuickActions from '../components/QuickActions';
 
 const HomeScreen = () => {
-  // Get current time for dynamic greeting
-  const getGreeting = () => {
-    const hour = new Date().getHours();
-    if (hour < 12) return 'Good Morning';
-    if (hour < 17) return 'Good Afternoon';
-    return 'Good Evening';
-  };
+  // User name - in a real app, this would come from authentication/user context
+  const userName = 'Aditya'; // This would be dynamically fetched from user state/context
 
   // Sample data for My Creations
   const myCreations = [
@@ -48,7 +43,7 @@ const HomeScreen = () => {
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           {/* Greeting + Streak Summary */}
           <View style={styles.header}>
-            <Text style={styles.greeting}>{getGreeting()}, Aditya!</Text>
+            <Text style={styles.greeting}>Keep Shining, {userName} ✨</Text>
           </View>
 
           {/* Progress Indicator */}
@@ -94,14 +89,16 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 20,
-    paddingTop: 40,
-    paddingBottom: 8,
+    paddingTop: Platform.OS === 'ios' ? 60 : 40, // Extra padding for iOS notch
+    paddingBottom: 12,
+    marginTop: Platform.OS === 'android' ? 24 : 0, // Additional margin for Android
   },
   greeting: {
     fontSize: 28,
-    fontWeight: '700',
+    fontWeight: '800', // Slightly bolder for friendlier tone
     color: '#FFFFFF',
     textAlign: 'left',
+    letterSpacing: 0.5, // Slight letter spacing for better readability
   },
   bottomSpacing: {
     height: 100, // Space for bottom navigation
