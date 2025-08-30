@@ -8,9 +8,9 @@ const PlaylistCard = ({ title, subtitle, onPress, type = 'created' }) => {
       <View style={[
         styles.card, 
         type === 'suggested' && styles.suggestedCard,
-        (title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success') && styles.morningMotivationCard
+        (title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success' || title === 'Self-Love Journey' || title === 'Inner Peace' || title === 'Productivity Power' || title === 'Stress Relief' || title === 'New Beginnings') && styles.morningMotivationCard
       ]}>
-        {title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success' ? (
+        {title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success' || title === 'Self-Love Journey' || title === 'Inner Peace' || title === 'Productivity Power' || title === 'Stress Relief' || title === 'New Beginnings' ? (
           <>
             <View style={styles.imageContainer}>
               <Image
@@ -19,7 +19,17 @@ const PlaylistCard = ({ title, subtitle, onPress, type = 'created' }) => {
                     ? require('../assets/mycreations.jpg')
                     : title === 'Confidence Boost'
                     ? require('../assets/confidence_image.jpg')
-                    : require('../assets/career_success.jpg')
+                    : title === 'Career Success'
+                    ? require('../assets/career_success.jpg')
+                    : title === 'Self-Love Journey'
+                    ? require('../assets/self_love.jpg')
+                    : title === 'Inner Peace'
+                    ? require('../assets/inner_peace.jpg')
+                    : title === 'Productivity Power'
+                    ? require('../assets/productivity_power.jpg')
+                    : title === 'Stress Relief'
+                    ? require('../assets/stress_relief.jpg')
+                    : require('../assets/new_begginings.jpg')
                 }
                 style={styles.cardImage}
                 resizeMode="cover"
@@ -97,7 +107,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#292966', // Dark periwinkle for excellent contrast
     marginBottom: 4,
-    lineHeight: 20,
+    lineHeight: 18, // Reduced line height to encourage two lines
+    flexWrap: 'wrap', // Ensure text wraps to next line
   },
   subtitle: {
     fontSize: 12,
