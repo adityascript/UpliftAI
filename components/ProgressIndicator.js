@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import AnimatedWaveform from './AnimatedWaveform';
 
 const ProgressIndicator = () => {
   // Get current date info
@@ -38,6 +39,7 @@ const ProgressIndicator = () => {
           <Text style={styles.normalText}> days listened in {currentMonthName}</Text>
         </Text>
       </View>
+      <AnimatedWaveform />
     </View>
   );
 };
