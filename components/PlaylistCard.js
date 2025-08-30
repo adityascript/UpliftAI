@@ -8,9 +8,9 @@ const PlaylistCard = ({ title, subtitle, onPress, type = 'created' }) => {
       <View style={[
         styles.card, 
         type === 'suggested' && styles.suggestedCard,
-        (title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success' || title === 'Self-Love Journey' || title === 'Inner Peace' || title === 'Productivity Power' || title === 'Stress Relief' || title === 'New Beginnings') && styles.morningMotivationCard
+        (title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success' || title === 'Health & Wellness' || title === 'Self-Love Journey' || title === 'Inner Peace' || title === 'Productivity Power' || title === 'Stress Relief' || title === 'New Beginnings') && styles.morningMotivationCard
       ]}>
-        {title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success' || title === 'Self-Love Journey' || title === 'Inner Peace' || title === 'Productivity Power' || title === 'Stress Relief' || title === 'New Beginnings' ? (
+        {title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success' || title === 'Health & Wellness' || title === 'Self-Love Journey' || title === 'Inner Peace' || title === 'Productivity Power' || title === 'Stress Relief' || title === 'New Beginnings' ? (
           <>
             <View style={styles.imageContainer}>
               <Image
@@ -21,6 +21,8 @@ const PlaylistCard = ({ title, subtitle, onPress, type = 'created' }) => {
                     ? require('../assets/confidence_image.jpg')
                     : title === 'Career Success'
                     ? require('../assets/career_success.jpg')
+                    : title === 'Health & Wellness'
+                    ? require('../assets/health_wellness.jpg')
                     : title === 'Self-Love Journey'
                     ? require('../assets/self_love.jpg')
                     : title === 'Inner Peace'
