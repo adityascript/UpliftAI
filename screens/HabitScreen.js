@@ -6,7 +6,7 @@ import StreakCalendar from '../components/StreakCalendar';
 const HabitScreen = () => {
   return (
     <LinearGradient
-      colors={['#D8C830', '#F6F2CE']} // Straw gradient
+      colors={['#9999FF', '#CCCCFF']} // Periwinkle gradient
       style={styles.gradient}
     >
       <SafeAreaView style={styles.container}>
@@ -57,23 +57,23 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#3F3B0C', // Dark straw
+    color: '#292966', // Dark periwinkle
     textAlign: 'left',
     marginBottom: 4,
   },
   subtitle: {
     fontSize: 16,
-    color: '#7F7518', // Medium straw
+    color: '#5C5C99', // Medium periwinkle
     textAlign: 'left',
   },
   insightsSection: {
     paddingHorizontal: 20,
     paddingVertical: 24,
     marginHorizontal: 20,
-    backgroundColor: 'rgba(241, 235, 179, 0.9)', // Light straw background
+    backgroundColor: 'rgba(204, 204, 255, 0.9)', // Periwinkle background
     borderRadius: 16,
     marginTop: 20,
-    shadowColor: 'rgba(228, 155, 123, 0.4)', // Coral shadow for accent
+    shadowColor: 'rgba(153, 153, 255, 0.5)', // Periwinkle shadow
     shadowOffset: {
       width: 0,
       height: 4,
@@ -85,12 +85,12 @@ const styles = StyleSheet.create({
   insightsTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#E49B7B', // Coral for insights title - strong accent
+    color: '#6666FF', // Deep periwinkle for insights title
     marginBottom: 8,
   },
   insightsText: {
     fontSize: 14,
-    color: '#3F3B0C', // Dark straw for readability
+    color: '#292966', // Dark periwinkle for readability
     lineHeight: 20,
   },
   bottomSpacing: {

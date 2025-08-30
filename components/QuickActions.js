@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
   actionButton: {
     alignItems: 'center',
     padding: 16,
-    backgroundColor: 'rgba(241, 235, 179, 0.9)', // Light straw background
+    backgroundColor: 'rgba(204, 204, 255, 0.9)', // Periwinkle background
     borderRadius: 16,
     minWidth: 100,
-    shadowColor: 'rgba(228, 155, 123, 0.4)', // Coral shadow for accent
+    shadowColor: 'rgba(153, 153, 255, 0.5)', // Periwinkle shadow
     shadowOffset: {
       width: 0,
       height: 4,
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 6,
     borderWidth: 1,
-    borderColor: 'rgba(228, 155, 123, 0.2)', // Subtle coral border
+    borderColor: 'rgba(204, 204, 255, 0.3)', // Periwinkle border
   },
   actionIcon: {
     fontSize: 24,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   actionText: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#3F3B0C', // Dark straw text
+    color: '#292966', // Dark periwinkle text
     textAlign: 'center',
   },
 });

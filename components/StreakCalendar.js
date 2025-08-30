@@ -118,12 +118,12 @@ const styles = StyleSheet.create({
   streakText: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#E49B7B', // Coral for streak text - strong accent
+    color: '#6666FF', // Deep periwinkle for streak text
   },
   monthText: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#BEB024', // Light straw shade
+    color: '#5C5C99', // Medium periwinkle
     marginTop: 4,
   },
   calendarContainer: {
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#D3D3D3', // Default gray
   },
   achieved: {
-    backgroundColor: '#E49B7B', // Coral for achieved days - strong contrast
+    backgroundColor: '#9999FF', // Medium periwinkle for achieved days
   },
   missed: {
     backgroundColor: '#D3D3D3', // Gray
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   },
   today: {
     borderWidth: 2,
-    borderColor: '#E49B7B', // Coral border for today
+    borderColor: '#6666FF', // Deep periwinkle border for today
   },
   dayNumber: {
     fontSize: 12,
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   todayText: {
     fontWeight: '700',
-    color: '#E49B7B', // Coral for today's text
+    color: '#6666FF', // Deep periwinkle for today's text
   },
 });
 

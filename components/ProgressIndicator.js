@@ -33,7 +33,7 @@ const ProgressIndicator = () => {
   return (
     <View style={styles.container}>
       <View style={styles.progressRow}>
-        <Ionicons name="headset-outline" size={16} color="#E49B7B" style={styles.icon} />
+        <Ionicons name="headset-outline" size={16} color="#6666FF" style={styles.icon} />
         <Text style={styles.progressText}>
           <Text style={styles.highlight}>{daysListened}/{daysPassedThisMonth}</Text>
           <Text style={styles.normalText}> days listened in {currentMonthName}</Text>
@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '600',
-    color: '#E49B7B', // Coral for highlighted numbers - strong contrast
+    color: '#292966', // Dark periwinkle for highlighted numbers
   },
   normalText: {
     fontWeight: '400',
-    color: '#7F7518', // Medium straw shade for subtext
+    color: '#5C5C99', // Medium periwinkle for excellent readability
   },
 });
 

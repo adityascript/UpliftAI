@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
     width: 160,
   },
   card: {
-    backgroundColor: 'rgba(228, 155, 123, 0.15)', // Light coral tint for "My Creations"
+    backgroundColor: 'rgba(204, 204, 255, 0.9)', // Periwinkle background for "My Creations"
     borderRadius: 12,
     padding: 16,
-    shadowColor: 'rgba(228, 155, 123, 0.3)', // Coral shadow
+    shadowColor: 'rgba(153, 153, 255, 0.5)', // Periwinkle shadow
     shadowOffset: {
       width: 0,
       height: 4,
@@ -45,11 +45,11 @@ const styles = StyleSheet.create({
     elevation: 6,
     minHeight: 120,
     borderWidth: 1,
-    borderColor: 'rgba(228, 155, 123, 0.2)', // Subtle coral border
+    borderColor: 'rgba(204, 204, 255, 0.3)', // Periwinkle border
   },
   suggestedCard: {
-    backgroundColor: 'rgba(241, 235, 179, 0.85)', // Straw tint for suggested cards
-    borderColor: 'rgba(228, 217, 111, 0.2)', // Straw border
+    backgroundColor: 'rgba(213, 213, 255, 0.85)', // Light periwinkle for suggested cards
+    borderColor: 'rgba(204, 204, 255, 0.3)', // Periwinkle border
   },
   iconContainer: {
     marginBottom: 12,
@@ -61,13 +61,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#3F3B0C', // Dark straw for good contrast
+    color: '#292966', // Dark periwinkle for excellent contrast
     marginBottom: 4,
     lineHeight: 20,
   },
   subtitle: {
     fontSize: 12,
-    color: '#7F7518', // Medium straw for subtitles
+    color: '#5C5C99', // Medium periwinkle for subtitles
     lineHeight: 16,
   },
 });
