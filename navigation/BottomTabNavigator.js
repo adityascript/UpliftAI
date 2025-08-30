@@ -27,13 +27,13 @@ const BottomTabNavigator = () => {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#14B8A6',
-        tabBarInactiveTintColor: '#9CA3AF',
+        tabBarActiveTintColor: '#6666FF', // Medium periwinkle for active tab
+        tabBarInactiveTintColor: '#A3A3CC', // Light periwinkle for inactive tabs
         tabBarStyle: {
-          backgroundColor: '#111827',
+          backgroundColor: '#E0E0FF', // Very light periwinkle background
           borderTopWidth: 0,
           elevation: 20,
-          shadowColor: '#000',
+          shadowColor: '#9999FF',
           shadowOffset: {
             width: 0,
             height: -4,

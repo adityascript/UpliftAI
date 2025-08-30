@@ -34,7 +34,7 @@ const HomeScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#0A2342', '#193566']} // Dark blue gradient
+      colors={['#9999FF', '#CCCCFF']} // Periwinkle gradient (darker to lighter)
       style={styles.gradient}
     >
       <SafeAreaView style={styles.container}>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 28,
     fontWeight: '800', // Slightly bolder for friendlier tone
-    color: '#FFFFFF',
+    color: '#292966', // Dark periwinkle for high contrast
     textAlign: 'left',
     letterSpacing: 0.5, // Slight letter spacing for better readability
   },

@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
   actionButton: {
     alignItems: 'center',
     padding: 16,
-    backgroundColor: 'rgba(30, 58, 138, 0.9)',
+    backgroundColor: 'rgba(204, 204, 255, 0.9)', // Periwinkle background
     borderRadius: 16,
     minWidth: 100,
-    shadowColor: 'rgba(0, 0, 0, 0.5)',
+    shadowColor: 'rgba(153, 153, 255, 0.5)',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   actionText: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#FFFFFF',
+    color: '#292966', // Dark periwinkle text
     textAlign: 'center',
   },
 });

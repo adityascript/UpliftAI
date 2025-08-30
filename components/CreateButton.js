@@ -6,7 +6,7 @@ const CreateButton = ({ onPress }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.8}>
       <LinearGradient
-        colors={['#14B8A6', '#06B6D4']} // Teal to cyan gradient
+        colors={['#6666FF', '#9999FF']} // Deep to medium periwinkle gradient
         style={styles.gradient}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}

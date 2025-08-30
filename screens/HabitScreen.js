@@ -6,7 +6,7 @@ import StreakCalendar from '../components/StreakCalendar';
 const HabitScreen = () => {
   return (
     <LinearGradient
-      colors={['#0A2342', '#193566']} // Dark blue gradient
+      colors={['#9999FF', '#CCCCFF']} // Periwinkle gradient
       style={styles.gradient}
     >
       <SafeAreaView style={styles.container}>
@@ -57,23 +57,23 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: '#292966', // Dark periwinkle
     textAlign: 'left',
     marginBottom: 4,
   },
   subtitle: {
     fontSize: 16,
-    color: '#D1D5DB',
+    color: '#5C5C99', // Medium periwinkle
     textAlign: 'left',
   },
   insightsSection: {
     paddingHorizontal: 20,
     paddingVertical: 24,
     marginHorizontal: 20,
-    backgroundColor: 'rgba(30, 58, 138, 0.9)',
+    backgroundColor: 'rgba(204, 204, 255, 0.9)', // Periwinkle background
     borderRadius: 16,
     marginTop: 20,
-    shadowColor: 'rgba(0, 0, 0, 0.5)',
+    shadowColor: 'rgba(153, 153, 255, 0.5)',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -85,12 +85,12 @@ const styles = StyleSheet.create({
   insightsTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#14B8A6',
+    color: '#6666FF', // Medium periwinkle
     marginBottom: 8,
   },
   insightsText: {
     fontSize: 14,
-    color: '#D1D5DB',
+    color: '#292966', // Dark periwinkle for readability
     lineHeight: 20,
   },
   bottomSpacing: {
