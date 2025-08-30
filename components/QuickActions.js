@@ -37,17 +37,17 @@ const styles = StyleSheet.create({
   actionButton: {
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'rgba(30, 58, 138, 0.9)',
     borderRadius: 16,
     minWidth: 100,
-    shadowColor: '#000',
+    shadowColor: 'rgba(0, 0, 0, 0.5)',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
-    shadowOpacity: 0.08,
-    shadowRadius: 4,
-    elevation: 2,
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 6,
   },
   actionIcon: {
     fontSize: 24,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   actionText: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#2D2D2D',
+    color: '#FFFFFF',
     textAlign: 'center',
   },
 });

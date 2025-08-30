@@ -118,12 +118,12 @@ const styles = StyleSheet.create({
   streakText: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#2D5016',
+    color: '#14B8A6',
   },
   monthText: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#666',
+    color: '#D1D5DB',
     marginTop: 4,
   },
   calendarContainer: {
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#D3D3D3', // Default gray
   },
   achieved: {
-    backgroundColor: '#B8E6B8', // Lighter green
+    backgroundColor: '#14B8A6', // Teal
   },
   missed: {
     backgroundColor: '#D3D3D3', // Gray
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   },
   today: {
     borderWidth: 2,
-    borderColor: '#2D5016',
+    borderColor: '#14B8A6',
   },
   dayNumber: {
     fontSize: 12,
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   todayText: {
     fontWeight: '700',
-    color: '#2D5016',
+    color: '#14B8A6',
   },
 });
 

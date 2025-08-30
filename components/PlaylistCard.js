@@ -32,21 +32,21 @@ const styles = StyleSheet.create({
     width: 160,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'rgba(30, 58, 138, 0.9)', // Navy with 90% opacity
     borderRadius: 12,
     padding: 16,
-    shadowColor: '#000',
+    shadowColor: 'rgba(0, 0, 0, 0.5)',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 6,
     minHeight: 120,
   },
   suggestedCard: {
-    backgroundColor: '#FFFEF7', // Slightly warmer white for suggested cards
+    backgroundColor: 'rgba(30, 58, 138, 0.85)', // Slightly different opacity for suggested cards
   },
   iconContainer: {
     marginBottom: 12,
@@ -58,13 +58,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#2D2D2D',
+    color: '#FFFFFF',
     marginBottom: 4,
     lineHeight: 20,
   },
   subtitle: {
     fontSize: 12,
-    color: '#666',
+    color: '#FFFFFF',
     lineHeight: 16,
   },
 });

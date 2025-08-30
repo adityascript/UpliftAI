@@ -6,7 +6,7 @@ const CreateButton = ({ onPress }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.8}>
       <LinearGradient
-        colors={['#F5F5DC', '#E6FFE6']} // Light yellow to light green
+        colors={['#14B8A6', '#06B6D4']} // Teal to cyan gradient
         style={styles.gradient}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
   plusIcon: {
     fontSize: 28,
     fontWeight: '300',
-    color: '#2D5016',
+    color: '#FFFFFF',
     marginRight: 8,
   },
   createText: {
     fontSize: 20,
-    fontWeight: '600',
-    color: '#2D5016',
+    fontWeight: '700',
+    color: '#FFFFFF',
   },
 });
 

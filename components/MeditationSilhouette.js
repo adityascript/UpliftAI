@@ -7,7 +7,7 @@ const MeditationSilhouette = ({ size = 50 }) => {
     <View style={[styles.container, { width: size, height: size }]}>
       {/* Sun/Background gradient */}
       <LinearGradient
-        colors={['#FFE135', '#FF8C00']}
+        colors={['#FBBF24', '#F97316']} // Yellow to orange gradient
         style={styles.background}
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 1 }}

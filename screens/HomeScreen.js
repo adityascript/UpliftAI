@@ -39,11 +39,11 @@ const HomeScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#FFE135', '#FFF8DC']} // Dark yellow to lighter yellow gradient
+      colors={['#0A2342', '#193566']} // Dark blue gradient
       style={styles.gradient}
     >
       <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
+        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
         
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           {/* Greeting + Streak Summary */}
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#2D2D2D',
+    color: '#FFFFFF',
     textAlign: 'left',
   },
   bottomSpacing: {

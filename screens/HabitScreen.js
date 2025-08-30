@@ -6,11 +6,11 @@ import StreakCalendar from '../components/StreakCalendar';
 const HabitScreen = () => {
   return (
     <LinearGradient
-      colors={['#FFE135', '#FFF8DC']} // Same gradient as other screens
+      colors={['#0A2342', '#193566']} // Dark blue gradient
       style={styles.gradient}
     >
       <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
+        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
         
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           {/* Header */}
@@ -57,40 +57,40 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#2D2D2D',
+    color: '#FFFFFF',
     textAlign: 'left',
     marginBottom: 4,
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
+    color: '#D1D5DB',
     textAlign: 'left',
   },
   insightsSection: {
     paddingHorizontal: 20,
     paddingVertical: 24,
     marginHorizontal: 20,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'rgba(30, 58, 138, 0.9)',
     borderRadius: 16,
     marginTop: 20,
-    shadowColor: '#000',
+    shadowColor: 'rgba(0, 0, 0, 0.5)',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 6,
   },
   insightsTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#2D5016',
+    color: '#14B8A6',
     marginBottom: 8,
   },
   insightsText: {
     fontSize: 14,
-    color: '#666',
+    color: '#D1D5DB',
     lineHeight: 20,
   },
   bottomSpacing: {
