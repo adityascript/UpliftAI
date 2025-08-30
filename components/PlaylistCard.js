@@ -5,7 +5,11 @@ import MeditationSilhouette from './MeditationSilhouette';
 const PlaylistCard = ({ title, subtitle, onPress, type = 'created' }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.7}>
-      <View style={[styles.card, type === 'suggested' && styles.suggestedCard]}>
+      <View style={[
+        styles.card, 
+        type === 'suggested' && styles.suggestedCard,
+        title === 'Morning Motivation' && styles.morningMotivationCard
+      ]}>
         {title === 'Morning Motivation' ? (
           <>
             <View style={styles.imageContainer}>
@@ -107,6 +111,9 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     justifyContent: 'flex-end',
+  },
+  morningMotivationCard: {
+    padding: 8, // Half of the original 16px padding
   },
 });
 
