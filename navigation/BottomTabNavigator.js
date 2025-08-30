@@ -1,12 +1,24 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
 import HabitScreen from '../screens/HabitScreen';
+import CreateAffirmationFlow from '../screens/CreateAffirmationFlow';
 import PlaylistsScreen from '../screens/PlaylistsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function HomeStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="CreateAffirmation" component={CreateAffirmationFlow} />
+    </Stack.Navigator>
+  );
+}
 
 const BottomTabNavigator = () => {
   return (
@@ -51,7 +63,7 @@ const BottomTabNavigator = () => {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="Habit" component={HabitScreen} />
       <Tab.Screen name="Playlists" component={PlaylistsScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />

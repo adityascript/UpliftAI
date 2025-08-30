@@ -1,72 +1,67 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import AnimatedWaveString from './AnimatedWaveString';
 
-const ProgressIndicator = () => {
-  // Get current date info
-  const now = new Date();
-  const currentYear = now.getFullYear();
-  const currentMonth = now.getMonth();
-  const currentDate = now.getDate();
-  
-  // Get month name (short form)
-  const monthNames = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-  ];
-  const currentMonthName = monthNames[currentMonth];
-  
-  // Calculate days passed in current month
-  const daysPassedThisMonth = currentDate;
-  
-  // Sample data for days listened (in real app, this would come from user data/state)
-  // For demo, let's say user listened on about 70% of days
-  const calculateDaysListened = () => {
-    // This is sample logic - replace with actual user data
-    const sampleListenedDays = Math.floor(daysPassedThisMonth * 0.7);
-    return Math.max(1, sampleListenedDays); // Ensure at least 1 day for demo
-  };
-  
-  const daysListened = calculateDaysListened();
-  
+const ProgressIndicator = ({ currentStep, totalSteps }) => {
+  const progressPercentage = (currentStep / totalSteps) * 100;
+
   return (
     <View style={styles.container}>
-      <View style={styles.progressRow}>
-        <Ionicons name="headset-outline" size={16} color="#6666FF" style={styles.icon} />
-        <Text style={styles.progressText}>
-          <Text style={styles.highlight}>{daysListened}/{daysPassedThisMonth}</Text>
-          <Text style={styles.normalText}> days listened in {currentMonthName}</Text>
+      <View style={styles.header}>
+        <Text style={styles.stepText}>
+          Step {currentStep} of {totalSteps}
+        </Text>
+        <Text style={styles.percentageText}>
+          {Math.round(progressPercentage)}%
         </Text>
       </View>
-      <AnimatedWaveString />
+      
+      <View style={styles.progressBarContainer}>
+        <View style={styles.progressBar}>
+          <View 
+            style={[
+              styles.progressFill, 
+              { width: `${progressPercentage}%` }
+            ]} 
+          />
+        </View>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
+    marginBottom: 20,
   },
-  progressRow: {
+  header: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    marginBottom: 8,
   },
-  icon: {
-    marginRight: 8,
-  },
-  progressText: {
+  stepText: {
     fontSize: 16,
-    lineHeight: 20,
-  },
-  highlight: {
     fontWeight: '600',
-    color: '#292966', // Dark periwinkle for highlighted numbers
+    color: '#292966',
   },
-  normalText: {
-    fontWeight: '400',
-    color: '#5C5C99', // Medium periwinkle for excellent readability
+  percentageText: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#5C5C99',
+  },
+  progressBarContainer: {
+    width: '100%',
+  },
+  progressBar: {
+    height: 6,
+    backgroundColor: 'rgba(204, 204, 255, 0.3)',
+    borderRadius: 3,
+    overflow: 'hidden',
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: '#6666FF',
+    borderRadius: 3,
   },
 });
 

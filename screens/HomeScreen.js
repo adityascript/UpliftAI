@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, SafeAreaView, StatusBar, Platform } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import ProgressIndicator from '../components/ProgressIndicator';
+import HomeProgressIndicator from '../components/HomeProgressIndicator';
 import CreateButton from '../components/CreateButton';
 import PlaylistSection from '../components/PlaylistSection';
 import QuickActions from '../components/QuickActions';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   // User name - in a real app, this would come from authentication/user context
   const userName = 'Aditya'; // This would be dynamically fetched from user state/context
 
@@ -28,8 +28,7 @@ const HomeScreen = () => {
   ];
 
   const handleCreatePress = () => {
-    console.log('Create button pressed');
-    // TODO: Navigate to create affirmation screen
+    navigation.navigate('CreateAffirmation');
   };
 
   return (
@@ -47,7 +46,7 @@ const HomeScreen = () => {
           </View>
 
           {/* Progress Indicator */}
-          <ProgressIndicator />
+          <HomeProgressIndicator />
 
           {/* Primary Create Button */}
           <CreateButton onPress={handleCreatePress} />
