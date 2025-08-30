@@ -8,15 +8,18 @@ const PlaylistCard = ({ title, subtitle, onPress, type = 'created' }) => {
       <View style={[
         styles.card, 
         type === 'suggested' && styles.suggestedCard,
-        (title === 'Morning Motivation' || title === 'Confidence Boost') && styles.morningMotivationCard
+        (title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success') && styles.morningMotivationCard
       ]}>
-        {title === 'Morning Motivation' || title === 'Confidence Boost' ? (
+        {title === 'Morning Motivation' || title === 'Confidence Boost' || title === 'Career Success' ? (
           <>
             <View style={styles.imageContainer}>
               <Image
-                source={title === 'Morning Motivation' 
-                  ? require('../assets/mycreations.jpg')
-                  : require('../assets/confidence_image.jpg')
+                source={
+                  title === 'Morning Motivation' 
+                    ? require('../assets/mycreations.jpg')
+                    : title === 'Confidence Boost'
+                    ? require('../assets/confidence_image.jpg')
+                    : require('../assets/career_success.jpg')
                 }
                 style={styles.cardImage}
                 resizeMode="cover"
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 8,
     elevation: 6,
-    minHeight: 120,
+    height: 168, // Increased by 20% from 140px
     borderWidth: 1,
     borderColor: 'rgba(204, 204, 255, 0.3)', // Periwinkle border
   },
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
     lineHeight: 16,
   },
   imageContainer: {
-    height: 60, // Top half of the card
+    height: 84, // Increased by 20% from 70px
     borderRadius: 8,
     overflow: 'hidden',
     marginBottom: 8,
@@ -112,11 +115,12 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   textContainer: {
-    flex: 1,
+    height: 60, // Increased by 20% from 50px
     justifyContent: 'flex-end',
   },
   morningMotivationCard: {
     padding: 8, // Half of the original 16px padding
+    height: 168, // Increased by 20% from 140px
   },
 });
 
