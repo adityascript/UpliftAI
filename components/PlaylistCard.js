@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 8,
     elevation: 6,
-    height: 168, // Increased by 20% from 140px
+    height: 176, // Increased by 5% from 168px
     borderWidth: 1,
     borderColor: 'rgba(204, 204, 255, 0.3)', // Periwinkle border
   },
@@ -105,22 +105,22 @@ const styles = StyleSheet.create({
     lineHeight: 16,
   },
   imageContainer: {
-    height: 84, // Increased by 20% from 70px
+    height: 88, // Increased by 5% from 84px
     borderRadius: 8,
     overflow: 'hidden',
-    marginBottom: 8,
+    marginBottom: 12, // Increased spacing between image and text
   },
   cardImage: {
     width: '100%',
     height: '100%',
   },
   textContainer: {
-    height: 60, // Increased by 20% from 50px
+    height: 64, // Increased by 5% from 60px
     justifyContent: 'flex-end',
   },
   morningMotivationCard: {
     padding: 8, // Half of the original 16px padding
-    height: 168, // Increased by 20% from 140px
+    height: 176, // Increased by 5% from 168px
   },
 });
 
