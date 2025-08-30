@@ -8,13 +8,16 @@ const PlaylistCard = ({ title, subtitle, onPress, type = 'created' }) => {
       <View style={[
         styles.card, 
         type === 'suggested' && styles.suggestedCard,
-        title === 'Morning Motivation' && styles.morningMotivationCard
+        (title === 'Morning Motivation' || title === 'Confidence Boost') && styles.morningMotivationCard
       ]}>
-        {title === 'Morning Motivation' ? (
+        {title === 'Morning Motivation' || title === 'Confidence Boost' ? (
           <>
             <View style={styles.imageContainer}>
               <Image
-                source={require('../assets/mycreations.jpg')}
+                source={title === 'Morning Motivation' 
+                  ? require('../assets/mycreations.jpg')
+                  : require('../assets/confidence_image.jpg')
+                }
                 style={styles.cardImage}
                 resizeMode="cover"
               />
