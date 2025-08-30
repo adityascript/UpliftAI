@@ -7,7 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 const AnimatedWaveString = () => {
   const screenWidth = Dimensions.get('window').width;
   const stringWidth = screenWidth * 0.9; // 90% of screen width for better span
-  const numSegments = 60; // More segments for smoother wave
+  const numSegments = 80; // Even more segments for highly detailed wave
   
   const animationValue = useRef(new Animated.Value(0)).current;
   
@@ -15,7 +15,7 @@ const AnimatedWaveString = () => {
     const waveAnimation = Animated.loop(
       Animated.timing(animationValue, {
         toValue: 1,
-        duration: 5000, // Slower for more calming effect
+        duration: 3000, // Faster to show more vibration activity
         useNativeDriver: true,
         easing: Easing.linear,
       })
@@ -39,15 +39,17 @@ const AnimatedWaveString = () => {
       const centerRatio = i / (numSegments - 1); // 0 to 1
       const distanceFromCenter = Math.abs(centerRatio - 0.5) * 2; // 0 at center, 1 at edges
       
-      // Smooth amplitude tapering with curved falloff
-      const maxAmplitude = 8;
-      const minAmplitude = 0.5;
+      // Enhanced amplitude with more pronounced center activity
+      const maxAmplitude = 12; // Increased max amplitude
+      const minAmplitude = 0.2;
       const amplitudeCurve = Math.cos(distanceFromCenter * Math.PI / 2); // Cosine for smooth falloff
       const amplitude = minAmplitude + (maxAmplitude - minAmplitude) * amplitudeCurve;
       
-      // Multiple wave frequencies for natural movement
-      const basePhase = i * 0.15; // Base wave phase
-      const secondaryPhase = i * 0.08; // Secondary wave phase
+      // Multiple wave frequencies for rich sinusoidal pattern
+      const primaryPhase = i * 0.4; // Higher frequency for more crests/troughs
+      const secondaryPhase = i * 0.25; // Secondary wave
+      const tertiaryPhase = i * 0.6; // Even higher frequency for fine detail
+      const microPhase = i * 0.8; // Very fine oscillations
       
       const animatedTransform = animationValue.interpolate({
         inputRange: [0, 1],
@@ -68,8 +70,16 @@ const AnimatedWaveString = () => {
                   translateY: animatedTransform.interpolate({
                     inputRange: [0, 2 * Math.PI],
                     outputRange: [
-                      (Math.sin(basePhase) * 0.7 + Math.sin(secondaryPhase) * 0.3) * amplitude,
-                      (Math.sin(basePhase + 2 * Math.PI) * 0.7 + Math.sin(secondaryPhase + 2 * Math.PI) * 0.3) * amplitude
+                      // Complex sinusoidal combination for rich wave pattern
+                      (Math.sin(primaryPhase) * 0.4 + 
+                       Math.sin(secondaryPhase) * 0.3 + 
+                       Math.sin(tertiaryPhase) * 0.2 + 
+                       Math.sin(microPhase) * 0.1) * amplitude,
+                      // Same pattern shifted by 2π for continuous motion
+                      (Math.sin(primaryPhase + 2 * Math.PI) * 0.4 + 
+                       Math.sin(secondaryPhase + 2 * Math.PI) * 0.3 + 
+                       Math.sin(tertiaryPhase + 2 * Math.PI) * 0.2 + 
+                       Math.sin(microPhase + 2 * Math.PI) * 0.1) * amplitude
                     ],
                     extrapolate: 'clamp',
                   }),
@@ -103,11 +113,11 @@ const AnimatedWaveString = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    paddingVertical: 12,
-    height: 50,
+    paddingVertical: 16,
+    height: 60, // Increased to accommodate larger vibrations
   },
   stringContainer: {
-    height: 30,
+    height: 40, // Increased height for bigger waves
     position: 'relative',
     overflow: 'visible', // Allow wave to extend slightly outside
   },
