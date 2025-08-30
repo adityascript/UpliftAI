@@ -1,49 +1,72 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Animated, StyleSheet, Dimensions } from 'react-native';
+import { View, Animated, StyleSheet, Dimensions, Easing } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const AnimatedWaveform = () => {
   const screenWidth = Dimensions.get('window').width;
   const waveformWidth = screenWidth - 80; // Account for padding
   
-  // Create animated values for more bars (wider waveform)
+  // Create animated values for 14 bars with varied heights
+  const numberOfBars = 14;
   const animatedValues = useRef(
-    Array.from({ length: 18 }, () => new Animated.Value(0))
+    Array.from({ length: numberOfBars }, () => new Animated.Value(0))
+  ).current;
+  
+  // Generate varied base heights for each bar (4px to 24px range)
+  const baseHeights = useRef(
+    Array.from({ length: numberOfBars }, (_, index) => {
+      // Create a more realistic waveform pattern with varied heights
+      const patterns = [
+        0.2, 0.7, 0.4, 0.9, 0.3, 0.8, 0.5, 
+        0.6, 0.9, 0.3, 0.7, 0.4, 0.8, 0.2
+      ];
+      // Ensure no two adjacent bars are the same height
+      let height = patterns[index % patterns.length];
+      
+      // Add slight randomization to avoid exact repetition
+      height += (Math.random() - 0.5) * 0.1;
+      
+      // Clamp between 0.2 and 1.0
+      return Math.max(0.2, Math.min(1.0, height));
+    })
   ).current;
   
   const translateX = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Create staggered height animations for bars
+    // Create staggered height animations for bars with slower, smoother timing
     const createBarAnimation = (animatedValue, delay) => {
       return Animated.loop(
         Animated.sequence([
           Animated.timing(animatedValue, {
             toValue: 1,
-            duration: 800 + Math.random() * 400, // Vary duration for natural feel
+            duration: 2000 + Math.random() * 1000, // Much slower: 2-3 seconds
             useNativeDriver: false,
             delay,
+            easing: Easing.bezier(0.4, 0.0, 0.6, 1.0), // Smooth ease-in-out
           }),
           Animated.timing(animatedValue, {
-            toValue: 0.3,
-            duration: 600 + Math.random() * 300,
+            toValue: 0.2,
+            duration: 1800 + Math.random() * 800, // Slower return: 1.8-2.6 seconds
             useNativeDriver: false,
+            easing: Easing.bezier(0.4, 0.0, 0.6, 1.0), // Smooth ease-in-out
           }),
         ])
       );
     };
 
-    // Start all bar animations with different delays
+    // Start all bar animations with different delays for organic feel
     const barAnimations = animatedValues.map((animatedValue, index) =>
-      createBarAnimation(animatedValue, index * 100)
+      createBarAnimation(animatedValue, index * 150) // Longer stagger for more fluid wave
     );
 
-    // Create horizontal movement animation
+    // Create slower horizontal movement animation
     const horizontalAnimation = Animated.loop(
       Animated.timing(translateX, {
-        toValue: 20, // Move 20 pixels right and back
-        duration: 3000,
+        toValue: 20, // Same distance but slower
+        duration: 5000, // Much slower: 5 seconds
         useNativeDriver: true,
+        easing: Easing.bezier(0.4, 0.0, 0.6, 1.0), // Smooth movement
       })
     );
 
@@ -58,14 +81,23 @@ const AnimatedWaveform = () => {
   }, []);
 
   const renderWaveformBar = (animatedValue, index) => {
+    const baseHeight = baseHeights[index];
+    
+    // Calculate actual height using base height pattern (4px to 24px range)
+    const minHeight = 4;
+    const maxHeight = 24;
+    const staticHeight = minHeight + (baseHeight * (maxHeight - minHeight));
+    
+    // Animated height with subtle variation around the base height
     const height = animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [4, 20], // Larger bars: Min height 4px, max height 20px
+      outputRange: [staticHeight * 0.8, staticHeight * 1.1], // Animate around base height
     });
 
+    // Opacity animation for breathing effect
     const opacity = animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [0.7, 1], // Higher opacity for better contrast
+      outputRange: [0.6, 0.95], // Subtle opacity change
     });
 
     // Create different gradient patterns for visual variety
@@ -133,23 +165,22 @@ const styles = StyleSheet.create({
   },
   waveformContainer: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'flex-end', // Align bars to bottom for waveform look
     justifyContent: 'center',
-    height: 24, // Taller container for bigger bars
+    height: 28, // Container height to accommodate tallest bars
     width: '90%', // Make it wider (90% of parent width)
   },
   waveformBar: {
-    width: 4, // Wider bars for better visibility
-    borderRadius: 2,
-    marginHorizontal: 1.5, // Slightly less margin to fit more bars
-    minHeight: 4,
+    width: 5, // Slightly wider bars for better visibility of height variation
+    borderRadius: 2.5, // Rounded corners matching width
+    marginHorizontal: 1.5, // Consistent spacing
     overflow: 'hidden', // For gradient
     shadowColor: '#000', // Add subtle shadow for depth
     shadowOffset: {
       width: 0,
       height: 1,
     },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.15, // Slightly reduced shadow for calmer feel
     shadowRadius: 1,
     elevation: 2,
   },
