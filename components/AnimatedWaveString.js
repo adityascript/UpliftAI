@@ -7,7 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 const AnimatedWaveString = () => {
   const screenWidth = Dimensions.get('window').width;
   const stringWidth = screenWidth * 0.9; // 90% of screen width for better span
-  const numSegments = 80; // Even more segments for highly detailed wave
+  const numSegments = 120; // More segments for smooth serpentine curves
   
   const animationValue = useRef(new Animated.Value(0)).current;
   
@@ -15,7 +15,7 @@ const AnimatedWaveString = () => {
     const waveAnimation = Animated.loop(
       Animated.timing(animationValue, {
         toValue: 1,
-        duration: 3000, // Faster to show more vibration activity
+        duration: 4000, // Slower for smooth flowing motion
         useNativeDriver: true,
         easing: Easing.linear,
       })
@@ -35,21 +35,18 @@ const AnimatedWaveString = () => {
       const segmentWidth = stringWidth / numSegments;
       const x = i * segmentWidth;
       
-      // Calculate distance from center for amplitude tapering
-      const centerRatio = i / (numSegments - 1); // 0 to 1
-      const distanceFromCenter = Math.abs(centerRatio - 0.5) * 2; // 0 at center, 1 at edges
+      // Horizontal progress along the string (0 to 1)
+      const progress = i / (numSegments - 1);
       
-      // Enhanced amplitude with more pronounced center activity
-      const maxAmplitude = 12; // Increased max amplitude
-      const minAmplitude = 0.2;
-      const amplitudeCurve = Math.cos(distanceFromCenter * Math.PI / 2); // Cosine for smooth falloff
-      const amplitude = minAmplitude + (maxAmplitude - minAmplitude) * amplitudeCurve;
+      // Create amplitude envelope - stronger in middle, weaker at ends (like reference image)
+      const centerDistance = Math.abs(progress - 0.5) * 2; // 0 at center, 1 at ends
+      const amplitudeEnvelope = Math.cos(centerDistance * Math.PI / 2); // Smooth falloff
+      const maxAmplitude = 25; // Large amplitude for pronounced coils
+      const amplitude = maxAmplitude * amplitudeEnvelope;
       
-      // Multiple wave frequencies for rich sinusoidal pattern
-      const primaryPhase = i * 0.4; // Higher frequency for more crests/troughs
-      const secondaryPhase = i * 0.25; // Secondary wave
-      const tertiaryPhase = i * 0.6; // Even higher frequency for fine detail
-      const microPhase = i * 0.8; // Very fine oscillations
+      // Create tight serpentine coils like in the reference image
+      const coilFrequency = 12; // Number of complete coils across the string
+      const wavePhase = progress * coilFrequency * Math.PI * 2;
       
       const animatedTransform = animationValue.interpolate({
         inputRange: [0, 1],
@@ -70,16 +67,9 @@ const AnimatedWaveString = () => {
                   translateY: animatedTransform.interpolate({
                     inputRange: [0, 2 * Math.PI],
                     outputRange: [
-                      // Complex sinusoidal combination for rich wave pattern
-                      (Math.sin(primaryPhase) * 0.4 + 
-                       Math.sin(secondaryPhase) * 0.3 + 
-                       Math.sin(tertiaryPhase) * 0.2 + 
-                       Math.sin(microPhase) * 0.1) * amplitude,
-                      // Same pattern shifted by 2π for continuous motion
-                      (Math.sin(primaryPhase + 2 * Math.PI) * 0.4 + 
-                       Math.sin(secondaryPhase + 2 * Math.PI) * 0.3 + 
-                       Math.sin(tertiaryPhase + 2 * Math.PI) * 0.2 + 
-                       Math.sin(microPhase + 2 * Math.PI) * 0.1) * amplitude
+                      // Serpentine wave pattern flowing horizontally
+                      Math.sin(wavePhase) * amplitude,
+                      Math.sin(wavePhase + 2 * Math.PI) * amplitude
                     ],
                     extrapolate: 'clamp',
                   }),
@@ -113,13 +103,13 @@ const AnimatedWaveString = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    paddingVertical: 16,
-    height: 60, // Increased to accommodate larger vibrations
+    paddingVertical: 20,
+    height: 80, // Increased to accommodate serpentine coils
   },
   stringContainer: {
-    height: 40, // Increased height for bigger waves
+    height: 60, // Much larger height for coiled wave pattern
     position: 'relative',
-    overflow: 'visible', // Allow wave to extend slightly outside
+    overflow: 'visible', // Allow wave to extend outside
   },
   waveSegment: {
     position: 'absolute',
