@@ -1,25 +1,49 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import MeditationSilhouette from './MeditationSilhouette';
 
 const PlaylistCard = ({ title, subtitle, onPress, type = 'created' }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.7}>
       <View style={[styles.card, type === 'suggested' && styles.suggestedCard]}>
-        <View style={styles.iconContainer}>
-          {type === 'created' ? (
-            <MeditationSilhouette size={40} />
-          ) : (
-            <Text style={styles.icon}>💡</Text>
-          )}
-        </View>
-        <Text style={styles.title} numberOfLines={2}>
-          {title}
-        </Text>
-        {subtitle && (
-          <Text style={styles.subtitle} numberOfLines={1}>
-            {subtitle}
-          </Text>
+        {title === 'Morning Motivation' ? (
+          <>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require('../assets/mycreations.jpg')}
+                style={styles.cardImage}
+                resizeMode="cover"
+              />
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.title} numberOfLines={2}>
+                {title}
+              </Text>
+              {subtitle && (
+                <Text style={styles.subtitle} numberOfLines={1}>
+                  {subtitle}
+                </Text>
+              )}
+            </View>
+          </>
+        ) : (
+          <>
+            <View style={styles.iconContainer}>
+              {type === 'created' ? (
+                <MeditationSilhouette size={40} />
+              ) : (
+                <Text style={styles.icon}>💡</Text>
+              )}
+            </View>
+            <Text style={styles.title} numberOfLines={2}>
+              {title}
+            </Text>
+            {subtitle && (
+              <Text style={styles.subtitle} numberOfLines={1}>
+                {subtitle}
+              </Text>
+            )}
+          </>
         )}
       </View>
     </TouchableOpacity>
@@ -69,6 +93,20 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#5C5C99', // Medium periwinkle for subtitles
     lineHeight: 16,
+  },
+  imageContainer: {
+    height: 60, // Top half of the card
+    borderRadius: 8,
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  cardImage: {
+    width: '100%',
+    height: '100%',
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
   },
 });
 
